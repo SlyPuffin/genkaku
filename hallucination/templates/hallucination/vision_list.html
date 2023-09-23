@@ -4,6 +4,14 @@
     <title>幻覚</title>
   </head>
   <body>
-    <p>test</p>
+    <h1>幻覚</h1>
+    {% for vision in visions %}
+    <article>
+      <time>published: {{ vision.published_date }}</time>
+      <h2><a href="">{{ vision.title }}</a></h2>
+      <p>Artist: {{ vision.artist }}</p>
+      <p>Composer: {{ vision.composer }}</p>
+    </article>
+    {% endfor %}
   </body>
 </html>

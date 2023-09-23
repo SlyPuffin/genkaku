@@ -8,8 +8,8 @@ class Vision(models.Model):
     title = models.CharField(max_length=200)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    artist = models.CharField(max_length=200)
-    composer = models.CharField(max_length=200)
+    artist = models.CharField(max_length=200, default='anonymous')
+    composer = models.CharField(max_length=200, default='anonymous')
 
     def publish(self):
         self.published_date = timezone.now()
@@ -24,7 +24,7 @@ class Sight(models.Model):
     image = models.ImageField(upload_to='media/%vision_title/', blank=True, null=True)
     priority = models.IntegerField()
     midi = models.IntegerField()
-    command = models.CharField(max_length=20)
+    command = models.CharField(max_length=20, blank=True, null=True)
 
     def __str__(self):
         return self.title
